@@ -1,0 +1,45 @@
+ useEffect(() => {
+    localStorage.setItem('projects', JSON.stringify(projects));
+  }, [projects]);
+
+  useEffect(() => {
+    localStorage.setItem('currentProject', JSON.stringify(currentProject));
+  }, [currentProject]);
+
+  useEffect(()=>{
+    if (projects.length == 0) {
+      setText(true)
+      setShowButtons(false)
+    }
+  },[projects])
+
+  const projectsObject = [
+    {
+      projectName: 'Studying',
+      description: 'Write words here',
+      tasks: [
+        {
+          taskName: 'Finish my maths homework',
+          checked: false
+        },
+        {
+          taskName: 'do something else',
+          checked: false
+        }
+      ]
+    }
+  ];
+
+  const initialProjects = localStorage.getItem('projects') ? JSON.parse(localStorage.getItem('projects')) : projectsObject;
+  const [showProjectForm, setShowProjectForm] = useState(false);
+  const [showTaskForm, setShowTaskForm] = useState(false);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [projects, setProjects] = useState(initialProjects);
+  const [task, setTask] = useState('');
+  const [showButtons, setShowButtons] = useState(true);
+  const [text, setText] = useState(false);
+  const [currentProject, setCurrentProject] = useState(() => {
+    const storedCurrentProject = localStorage.getItem('currentProject');
+    return storedCurrentProject ? JSON.parse(storedCurrentProject) : projects[0];
+  });

@@ -1,0 +1,349 @@
+    body {
+        margin:0;
+        padding:0;
+        height: 100vh;
+        width: 100vw;
+        font-family: Didact Gothic;
+        overflow: hidden;
+    }
+
+    .sidebar {
+        position: absolute;
+        left: 0;
+        width: 20vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: #ecf0f3;
+        align-items: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .my-projects {
+        width: fit-content;
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:#00BFFF;
+        border-bottom: 1px solid #00BFFF;
+        font-weight: 900;
+        font-size: 37px;
+    }
+
+    .project-page {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        gap: 50px;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 80vw;
+        color: white;
+        background-color: rgb(0, 2, 24);
+    }
+
+    .upper {
+      display: flex;
+      justify-content: space-between;
+      height: fit-content;
+    }
+
+    .left-side {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: 2vw;
+        top: 3.5vh;
+    }
+
+    .delete-project {
+      position: relative;
+      width: fit-content;
+      height: fit-content;
+      right: 3.3vw;
+      top: 4vh;
+      padding: 5px;
+      color: white;
+      border: none;
+      font-size: 20px;
+      font-family: monospace;
+      background: linear-gradient(to right, #ecf0f3 0%, #ecf0f3 50%, rgb(0, 2, 24) 50%, rgb(0, 2, 24) 100%);
+      background-size: 200% 100%;
+      background-position: 100% 0;
+      transition: background-position 0.3s;
+      cursor: pointer;
+    }
+
+    .delete-project:hover {
+      background-position:0 0;
+      color: red;
+  }
+
+    .lower {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        bottom: 50px;
+        overflow-y: auto;
+    }
+
+    .tasks {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        position: relative;
+        top: 10vh
+    }
+
+    .task {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 20px;
+        border: 1px solid white;
+        align-items: center;
+        height: 10vh;
+        margin-left: 25px;
+        width: 75vw;
+        padding-left: 10px;
+    }
+
+    .task-left-side {
+      display: flex;
+      gap: 10px;
+    }
+
+    .addTask {
+        position: relative;
+        right: 5vw;
+        top: 4vh;
+        width: fit-content;
+        height: fit-content;
+        color: white;
+        border: none;
+        font-size: 20px;
+        font-family: monospace;
+        padding: 5px;
+        background: linear-gradient(to right, #ecf0f3 0%, #ecf0f3 50%, rgb(0, 2, 24) 50%, rgb(0, 2, 24) 100%);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        transition: background-position 0.3s;
+        cursor: pointer;
+    }
+
+    .addTask:hover {
+        background-position:0 0;
+        color: rgb(0, 2, 24);
+    }
+
+    span {
+        color:#00BFFF;
+        font-weight: 900;
+    }
+
+    .active-checkbox {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        border: 1px solid white;
+        color: white;
+        background-color:#00BFFF;
+        text-align: center;
+        font-weight: 900;
+        cursor: pointer;
+    }
+
+    .disabled-checkbox {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      border: 1px solid white;
+      color: white;
+      background-color:rgb(0, 2, 24);
+      text-align: center;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .projects {
+        display: flex;
+        flex-direction: column;
+        height: 85vh;
+        width: 20vw;
+        align-items: first baseline;
+        justify-content: first baseline;
+        padding-left: 40px;
+        gap: 10px;
+        color: rgb(0, 2, 24);
+        margin-top: 30px;
+        word-wrap: break-word; 
+    }
+
+    .project {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        color:#00BFFF;
+        font-weight: 900;
+        cursor: pointer;
+        max-height: fit-content;
+        width: 5rem;
+    }
+
+    .addProject{
+        position: relative;
+        color: rgb(0, 2, 24);
+        border: none;
+        font-size: 20px;
+        width: fit-content;
+        padding: 5px;
+        font-family: monospace;
+        background: linear-gradient(to right, rgb(0, 2, 24) 0%, rgb(0, 2, 24) 50%, #ecf0f3 50%, #ecf0f3 100%);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        transition: background-position 0.3s;
+        cursor: pointer;
+    }
+
+    .right-side {
+      display: flex;
+    }
+
+    .addProject:hover{
+        background-position:0 0;
+        color: #ecf0f3;
+    }
+
+    .active {
+        background: rgba(0,2,24,0.8);
+    }
+
+    input {
+        caret-color: red;
+    }
+  
+  
+  .project-form-container {
+    width: 450px;
+    height: 400px;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .blur {
+    filter: blur(2px);
+  }
+  
+  .inputs {
+    text-align: left;
+    margin-top: 30px;
+  }
+  
+  label, input, .submit {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  label {
+    margin-bottom: 4px;
+  }
+  
+  label:nth-of-type(2) {
+    margin-top: 12px;
+  }
+  
+  input::placeholder {
+    color: gray;
+  }
+  
+  input {
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    height: 50px;
+    font-size: 14px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  }
+  
+   .submit {
+    color: white;
+    margin-top: 20px;
+    background: #1DA1F2;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+    transition: 0.5s;
+  }
+  
+  .submit:hover {
+    box-shadow: none;
+  }
+
+  .close-form {
+    position: absolute;
+    right: 7px;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    color: rgb(0, 2, 24);
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .task-form-container {
+    width: 450px;
+    height: 200px;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    position: absolute;
+    top: 45vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+  }
+
+  .task-x {
+    margin-right: 15px;
+    cursor: pointer;
+    color: red;
+  }
+
+  .task-x:hover {
+    transform: scale(0.8);
+  }
+
+  .project-x {
+    color: red;
+  }
+
+  .nothing-to-see {
+    margin: auto;
+    position: relative;
+    top: 40vh;
+    font-size: 35px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  .line-through {
+    text-decoration: line-through;
+  }
